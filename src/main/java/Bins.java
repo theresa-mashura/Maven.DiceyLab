@@ -2,20 +2,32 @@
 public class Bins {
     private int smallestBinSize;
     private int largestBinSize;
-    private int[] bins;
+    private int[] binsArray;
+
 
     public Bins(int maxValueOnDice, int numberOfDice) {
-        int smallestBinSize = numberOfDice;
-        int largestBinSize = maxValueOnDice * numberOfDice;
-        this.bins = new int[largestBinSize - smallestBinSize + 1];
+        this.smallestBinSize = numberOfDice;
+        this.largestBinSize = maxValueOnDice * numberOfDice;
+        this.binsArray = new int[largestBinSize - smallestBinSize + 1];
     }
 
     public Integer getBinResults(int bin) {
-        return this.bins[bin - this.smallestBinSize];
+        return this.binsArray[bin - this.smallestBinSize];
     }
 
     public void incrementBin(int bin) {
-        this.bins[bin - this.smallestBinSize] += 1;
+        this.binsArray[bin - this.smallestBinSize] += 1;
     }
 
+    public int getSmallestBinSize() {
+        return this.smallestBinSize;
+    }
+
+    public int getLargestBinSize() {
+        return this.largestBinSize;
+    }
+
+    public int[] getBinsArray() {
+        return binsArray;
+    }
 }

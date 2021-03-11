@@ -3,7 +3,7 @@ public class Dice {
     private int maxValueOnDice;
     private int numberOfDice;
 
-    public Dice(int numberOfDice, int maxValueOnDice) {
+    public Dice(int maxValueOnDice, int numberOfDice) {
         this.maxValueOnDice = maxValueOnDice;
         this.numberOfDice = numberOfDice;
     }
@@ -14,7 +14,7 @@ public class Dice {
         int diceRolled = 0;
 
         while (diceRolled < this.numberOfDice) {
-            sumOfDiceResults += 1 + (int) (Math.random() * (this.maxValueOnDice - 1 + 1));
+            sumOfDiceResults += Math.floor((Math.random() * this.maxValueOnDice + 1));
             diceRolled += 1;
         }
 
